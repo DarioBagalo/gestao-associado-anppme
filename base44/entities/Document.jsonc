@@ -1,0 +1,89 @@
+{
+  "name": "Document",
+  "type": "object",
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "description": "ID do associado"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "photo",
+        "signature",
+        "work_proof",
+        "id_document",
+        "other"
+      ],
+      "description": "Tipo do documento"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo/descri\u00e7\u00e3o do documento"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL do arquivo"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Status da verifica\u00e7\u00e3o"
+    },
+    "admin_notes": {
+      "type": "string",
+      "description": "Observa\u00e7\u00f5es do gestor / motivo de corre\u00e7\u00e3o"
+    }
+  },
+  "required": [
+    "member_id",
+    "type",
+    "file_url"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

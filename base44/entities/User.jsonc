@@ -1,0 +1,37 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "user"
+      ],
+      "default": "user",
+      "description": "Papel do usu\u00e1rio"
+    },
+    "city": {
+      "type": "string",
+      "description": "Munic\u00edpio do solicitante"
+    },
+    "state": {
+      "type": "string",
+      "description": "UF do solicitante"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Observa\u00e7\u00f5es do solicitante"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "active",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Status da solicita\u00e7\u00e3o de acesso"
+    }
+  }
+}

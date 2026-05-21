@@ -1,0 +1,59 @@
+{
+  "name": "Content",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo do conte\u00fado"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o breve"
+    },
+    "content_type": {
+      "type": "string",
+      "enum": [
+        "documento",
+        "artigo",
+        "video",
+        "link",
+        "outro"
+      ],
+      "default": "documento",
+      "description": "Tipo do conte\u00fado"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL do arquivo ou link"
+    },
+    "thumbnail_url": {
+      "type": "string",
+      "description": "URL da miniatura"
+    },
+    "category": {
+      "type": "string",
+      "description": "Categoria"
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": true,
+      "description": "Publicado"
+    },
+    "member_types_allowed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tipos de s\u00f3cio com acesso (vazio = todos)"
+    },
+    "order_index": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibi\u00e7\u00e3o"
+    }
+  },
+  "required": [
+    "title",
+    "content_type"
+  ]
+}

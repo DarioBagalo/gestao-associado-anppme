@@ -1,0 +1,32 @@
+{
+  "name": "PrintHistory",
+  "type": "object",
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "description": "ID do associado"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Nome do associado"
+    },
+    "item_type": {
+      "type": "string",
+      "enum": [
+        "member_card",
+        "certificate",
+        "ficha",
+        "report"
+      ],
+      "description": "Tipo do documento impresso"
+    },
+    "format": {
+      "type": "string",
+      "description": "Formato gerado (PDF, CSV, XLSX)"
+    }
+  },
+  "required": [
+    "member_id",
+    "item_type"
+  ]
+}

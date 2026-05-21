@@ -1,0 +1,55 @@
+{
+  "name": "ChatMessage",
+  "type": "object",
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "description": "ID do associado"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Nome do associado"
+    },
+    "member_email": {
+      "type": "string",
+      "description": "E-mail do associado"
+    },
+    "sender_role": {
+      "type": "string",
+      "enum": [
+        "member",
+        "admin"
+      ],
+      "description": "Quem enviou"
+    },
+    "sender_name": {
+      "type": "string",
+      "description": "Nome do remetente"
+    },
+    "message": {
+      "type": "string",
+      "description": "Texto da mensagem"
+    },
+    "attachment_url": {
+      "type": "string",
+      "description": "URL do anexo (opcional)"
+    },
+    "attachment_name": {
+      "type": "string",
+      "description": "Nome do arquivo anexo"
+    },
+    "read_by_admin": {
+      "type": "boolean",
+      "default": false
+    },
+    "read_by_member": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "member_id",
+    "sender_role",
+    "message"
+  ]
+}

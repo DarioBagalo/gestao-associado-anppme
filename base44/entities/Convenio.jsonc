@@ -1,0 +1,88 @@
+{
+  "name": "Convenio",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do conv\u00eanio/parceiro"
+    },
+    "logo_url": {
+      "type": "string",
+      "description": "URL do logotipo"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o do conv\u00eanio"
+    },
+    "benefits": {
+      "type": "string",
+      "description": "Benef\u00edcios oferecidos"
+    },
+    "address": {
+      "type": "string",
+      "description": "Endere\u00e7o"
+    },
+    "city": {
+      "type": "string",
+      "description": "Cidade"
+    },
+    "state": {
+      "type": "string",
+      "description": "Estado"
+    },
+    "contact_phone": {
+      "type": "string",
+      "description": "Telefone de contato"
+    },
+    "contact_email": {
+      "type": "string",
+      "description": "E-mail de contato"
+    },
+    "whatsapp_number": {
+      "type": "string",
+      "description": "N\u00famero do WhatsApp do conv\u00eanio (apenas d\u00edgitos)"
+    },
+    "website_url": {
+      "type": "string",
+      "description": "Site do conv\u00eanio"
+    },
+    "social_media_url": {
+      "type": "string",
+      "description": "Rede social"
+    },
+    "category": {
+      "type": "string",
+      "description": "Categoria do conv\u00eanio (ex: Sa\u00fade, Educa\u00e7\u00e3o, Alimenta\u00e7\u00e3o)"
+    },
+    "discount_info": {
+      "type": "string",
+      "description": "Informa\u00e7\u00f5es sobre descontos"
+    },
+    "is_visible": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se o conv\u00eanio est\u00e1 vis\u00edvel para os associados"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Se o conv\u00eanio est\u00e1 em destaque"
+    },
+    "order_index": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibi\u00e7\u00e3o"
+    },
+    "member_types_allowed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tipos de s\u00f3cios com acesso (vazio = todos)"
+    }
+  },
+  "required": [
+    "name",
+    "description"
+  ]
+}

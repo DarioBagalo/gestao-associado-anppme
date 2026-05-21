@@ -1,0 +1,164 @@
+{
+  "name": "Event",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo do evento"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o detalhada"
+    },
+    "workload_hours": {
+      "type": "number",
+      "description": "Carga hor\u00e1ria em horas"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "curso",
+        "palestra",
+        "workshop",
+        "reuniao",
+        "outro"
+      ],
+      "default": "palestra",
+      "description": "Tipo do evento"
+    },
+    "organizer": {
+      "type": "string",
+      "description": "Organizador/Promotor"
+    },
+    "is_anppme": {
+      "type": "boolean",
+      "default": false,
+      "description": "Evento promovido pela ANPPME"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Evento em destaque (m\u00e1x. 2)"
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": false,
+      "description": "Publicado para associados"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de in\u00edcio"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de t\u00e9rmino"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Hor\u00e1rio de in\u00edcio (HH:MM)"
+    },
+    "location": {
+      "type": "string",
+      "description": "Local ou link online"
+    },
+    "city": {
+      "type": "string",
+      "description": "Cidade"
+    },
+    "state": {
+      "type": "string",
+      "description": "Estado"
+    },
+    "is_online": {
+      "type": "boolean",
+      "default": false,
+      "description": "Evento online"
+    },
+    "cover_image_url": {
+      "type": "string",
+      "description": "URL da imagem de capa"
+    },
+    "registration_link": {
+      "type": "string",
+      "description": "Link externo de inscri\u00e7\u00e3o (parceiros)"
+    },
+    "max_participants": {
+      "type": "integer",
+      "description": "Vagas m\u00e1ximas (0 = ilimitado)"
+    },
+    "price": {
+      "type": "number",
+      "default": 0,
+      "description": "Pre\u00e7o (0 = gratuito)"
+    },
+    "sponsor_name": {
+      "type": "string",
+      "description": "Nome do patrocinador"
+    },
+    "sponsor_logo_url": {
+      "type": "string",
+      "description": "Logo do patrocinador"
+    },
+    "google_calendar_link": {
+      "type": "string",
+      "description": "Link do Google Calendar"
+    },
+    "certificate_template_front_url": {
+      "type": "string",
+      "description": "URL da arte da frente do certificado (imagem ou PDF)"
+    },
+    "certificate_template_back_url": {
+      "type": "string",
+      "description": "URL da arte do verso do certificado (imagem ou PDF)"
+    },
+    "certificate_city": {
+      "type": "string",
+      "description": "Cidade para constar no certificado (Ex: Ji-Paran\u00e1-RO)"
+    },
+    "certificate_issue_date_label": {
+      "type": "string",
+      "description": "Texto da data para constar no certificado (Ex: 15 de abril de 2026)"
+    },
+    "certificate_event_label": {
+      "type": "string",
+      "description": "Nome do evento conforme deve aparecer no certificado"
+    },
+    "certificate_participation_label": {
+      "type": "string",
+      "description": "Texto de participa\u00e7\u00e3o (Ex: pela participa\u00e7\u00e3o no Curso)"
+    },
+    "signatures": {
+      "type": "array",
+      "description": "Lista de assinaturas (at\u00e9 5)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "signer_name": {
+            "type": "string",
+            "description": "Nome completo do assinante"
+          },
+          "signer_role": {
+            "type": "string",
+            "description": "Fun\u00e7\u00e3o/cargo do assinante"
+          },
+          "signature_url": {
+            "type": "string",
+            "description": "URL da assinatura em PNG sem fundo"
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Assinatura habilitada neste certificado"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "title",
+    "start_date",
+    "event_type"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "description": "ID do associado destinat\u00e1rio"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "E-mail do usu\u00e1rio"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "status_change",
+        "document_pending",
+        "renewal_reminder",
+        "payment",
+        "general"
+      ],
+      "description": "Tipo da notifica\u00e7\u00e3o"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo da notifica\u00e7\u00e3o"
+    },
+    "message": {
+      "type": "string",
+      "description": "Mensagem da notifica\u00e7\u00e3o"
+    },
+    "read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Se foi lida"
+    },
+    "link": {
+      "type": "string",
+      "description": "Link interno relacionado"
+    }
+  },
+  "required": [
+    "member_id",
+    "user_email",
+    "type",
+    "title",
+    "message"
+  ]
+}

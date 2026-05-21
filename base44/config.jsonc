@@ -1,0 +1,9 @@
+{
+  "name": "ANPPME Gest\u00e3o Associativa",
+  "site": {
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "serveCommand": "npm run dev",
+    "outputDirectory": "./dist"
+  }
+}

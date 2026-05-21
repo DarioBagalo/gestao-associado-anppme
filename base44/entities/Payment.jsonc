@@ -1,0 +1,66 @@
+{
+  "name": "Payment",
+  "type": "object",
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "description": "ID do associado"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Nome do associado"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "anuidade",
+        "taxa_inscricao",
+        "outros"
+      ],
+      "default": "anuidade",
+      "description": "Tipo do pagamento"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o do pagamento"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Valor pago"
+    },
+    "payment_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data do pagamento"
+    },
+    "reference_year": {
+      "type": "integer",
+      "description": "Ano de refer\u00eancia"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "paid",
+        "pending",
+        "cancelled"
+      ],
+      "default": "paid",
+      "description": "Status do pagamento"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "URL do comprovante"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Observa\u00e7\u00f5es"
+    }
+  },
+  "required": [
+    "member_id",
+    "member_name",
+    "type",
+    "amount",
+    "payment_date"
+  ]
+}
