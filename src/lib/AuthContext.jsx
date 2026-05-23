@@ -22,12 +22,12 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingPublicSettings(true);
       setAuthError(null);
 
-      // Chamada otimizada: conexão direta sem intermediários e telemetria desativada
+      // Usando o endpoint oficial internacional integrado à infraestrutura Wix/Base44
       const appClient = createAxiosClient({
         baseURL: `https://api.base44.com/apps/public`,
         headers: { 'X-App-Id': appParams.appId },
         token: appParams.token,
-        interceptResponses: false // IMPORTANTE: Desativa os logs automáticos que consomem créditos
+        interceptResponses: false // Desativa telemetrias internas para poupar créditos
       });
 
       try {
@@ -86,15 +86,19 @@ export const AuthProvider = ({ children }) => {
   const logout = (shouldRedirect = true) => {
     setUser(null);
     setIsAuthenticated(false);
+    
+    // Para evitar cair na tela genérica de erro de domínio do Wix, 
+    // limpamos o token localmente e redirecionamos diretamente para o domínio de login do Base44
     if (shouldRedirect) {
-      base44.auth.logout(window.location.href);
+      base44.auth.logout();
+      window.location.href = `https://app.base44.com/apps/${appParams.appId}/login`;
     } else {
       base44.auth.logout();
     }
   };
 
   const navigateToLogin = () => {
-    base44.auth.redirectToLogin(window.location.href);
+    window.location.href = `https://app.base44.com/apps/${appParams.appId}/login`;
   };
 
   return (
